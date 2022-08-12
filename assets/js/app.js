@@ -1,14 +1,31 @@
+const scrollUp = document.querySelector("#scroll-up");
+const checkbox = document.querySelector("#checkbox");
+const hamburger = document.querySelector("#hamburger");
+const navMenu = document.querySelector("ul");
+const navLink = document.querySelectorAll("#nav-link");
 
-// Hamburger menu selections
+scrollUp.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+});
 
-// scroll-to-top selection
+hamburger.addEventListener("click", openMenu);
 
-// Hamburger menu functionality
+function openMenu() {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+}
 
-// Theme switcher selection
+navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
-// Close menu on nav menu clicks
+function closeMenu() {
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("active");
+}
 
-// scroll to top functionality
-
-// Theme switcher functionality
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});
